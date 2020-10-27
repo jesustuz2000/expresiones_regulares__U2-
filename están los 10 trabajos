@@ -1,0 +1,198 @@
+#1.	Todas las palabras que tengan una longitud de 7 o más letras
+paises = ['mexico','peru','jamaica','USA','italia','iran','irak','polonia','egipto','dom','cuba','republica_dominicana']
+print()
+paises_7=[]
+for p in paises:
+    if len(p)>=7:
+        paises_7.append(p)
+print('contenido de la variable paises con mas de 7 letras :', paises_7)
+print('cantidad de elementos de la variable paises con mas de 7 ñetras:',len(paises_7))  
+
+
+
+
+
+
+
+
+
+#2.	Expresiones que NO finalicen con una vocal.
+import re
+extracto = "Las expresiones regulares provienen del mundo de la matemática teórica, concretamente de la Teoría de Lenguajes Formales, pero se utilizan mucho en programación.  Sin entrar en definiciones matemáticas, una expresión regular puede pensarse como una palabra, formada por caracteres especiales, que sirve para identificar un conjunto de otras palabras."
+
+regex =  r'\w+[b-df-hj-np-tv-z]\b'
+resultado = re.findall(regex, extracto)
+
+for p in resultado:
+    print(p)
+    
+    
+    
+    
+    
+    
+    
+    
+#3.	Las palabras que inicien con “M” donde la segunda letra no sea vocal
+import re
+tecto = "mexico mx mma"
+
+regex =  r'\b[mM][^aA-uU]'
+resultado = re.findall(regex, tecto)
+
+for t in resultado:
+    print(t)
+    
+    
+    
+    
+    
+    
+    #4.	Expresiones encerradas entre comillas
+import re
+texto= 'JAVASCRIP,"PYTHON", "JAVA", "C++","C##","HTML", RUBI, C'
+patron= r'"(.*?)"'
+lenguaje = re.findall(patron, texto)
+for l in lenguaje:
+    print(l)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #  5    ip's
+import socket
+
+def ip_valida(ip):
+    try:
+        socket.inet_aton(ip)
+        return True
+    except socket.error:
+        return False
+
+
+print(ip_valida('127.0.0.1'))
+print(ip_valida('192.168.0.1'))
+print(ip_valida('192.168.0.1024'))
+print(ip_valida('192.168.0.24.7'))
+
+
+
+
+
+
+
+
+#6.	Horas
+import time
+print(time.time())
+print(time.strftime("%H:%M:%S"))
+
+
+
+tiempo=time.strftime("%H:%M:%S")
+print (tiempo)
+
+#%c:  hora 
+formato ="%c"
+hora=time.strftime(formato)
+print (hora)
+
+
+
+
+
+
+
+
+#7.	Telefonos
+import re
+tex = '66269815, ibjj, 9851170485'
+regex = r'(\+34|0034|34)?[-]*(8|9)[ -]*([0-9][ -]*){9}'
+resultado = re.findall(regex, tex)
+
+for t in resultado:
+    print(t)
+    
+    
+    
+    
+    
+    
+    
+    
+
+#8.	Correos electrónicos
+import re
+
+texto = """
+Usuariodd 1:kronvold@verizon.net
+mali@sbcglobal.net
+mjewell@mac.com
+jgoerzen@comcast.net
+raines@sbcglobal.net
+marioph@outlook.com
+"""
+
+patron = r'[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}'
+
+emails = re.findall(patron, texto)
+
+print(emails)
+
+
+
+
+
+
+
+
+#9.	Url’s
+import re
+
+texto = 'Página oficial de Python (v. 3.8.0): https://www.python.org/. URL corta de este canal: http://bit.ly/2SiCmCJ'
+
+patron = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+
+urls = re.findall(patron, texto)
+
+for u in urls:
+    print(u)
+    
+    
+    
+    
+    
+    
+
+
+
+#10.	Código postal
+import socket
+
+def cp_valida(cp):
+    try:
+        socket.inet_aton(cp)
+        return True
+    except socket.error:
+        return False
+
+
+print(cp_valida('6667'))
+print(cp_valida('7772'))
+print(cp_valida('41798n'))
+print(cp_valida('hhlo7'))
+
+
+
+
+
+    
+    
+    
